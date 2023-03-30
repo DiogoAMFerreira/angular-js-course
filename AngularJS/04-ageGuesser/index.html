@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Age Guesser AngularJS App</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	</head>
+<body>
+	<div ng-app="ageGuesser">
+		<div ng-controller="ageController">
+			<input type="text" ng-model="fullName" />
+			<button ng-click="retryAge()">Retry</button>
+			<p>Hello
+				{{fullName}}! Are you {{age}} years old?
+			</p>
+		</div>
+	</div>
+</body>
+<script>
+	var app = angular.module("ageGuesser", []);
+
+	app.controller("ageController", function ($scope) {
+		$scope.fullName = 'Test Subject #101'
+		$scope.age = Math.floor(Math.random() * 10) + 20;
+		// Math.floor(Math.random() * 10) + 20 Random value between 20 and 30
+		$scope.retryTries = 0;
+		$scope.retryAge = function () {
+			$scope.retryTries++;
+			$scope.age = Math.floor(Math.random() * 10 * $scope.retryTries) + 20;
+			if ($scope.age > 100) {
+				$scope.retryTries = 0;
+			}
+		};
+	});
+</script>
+
+</html>

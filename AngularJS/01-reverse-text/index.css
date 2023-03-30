@@ -1,0 +1,6 @@
+h3 {
+	text-align:left;
+	direction: rtl; /* right to left */
+	unicode-bidi: bidi-override;
+	/*Unicode-bidi and direction work in together to define as ok to override the default display*/
+}

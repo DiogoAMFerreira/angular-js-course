@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Validation & Binding AngularJS App</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+		<script src="index.js"></script>
+		<link rel="stylesheet" href="index.css">
+	</head>
+<body>
+	<div ng-app="validationAndBinding" ng-controller="usersController">
+		<form name="myForm">
+			<div ng-hide="editedUser == undefined">
+				<input type="text" name="userName" ng-model="editedUser.name" required />
+				<span class="error" ng-show="myForm.userName.$error.required">Required</span>
+				<button ng-hide="myForm.userName.$error.required" ng-click="save(editedUser)">Save</button>
+			</div>
+			<ul>
+				<li ng-repeat="u in users">
+					<a href="#" ng-click="edit(u)">{{u.name}}</a>
+				</li>
+			</ul>
+		</form>
+	</div>
+</body>
+</html>

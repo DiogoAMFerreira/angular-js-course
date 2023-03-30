@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>BankBalance AngularJS App</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script src="index.js" ></script>
+</head>
+
+<body>
+	<div ng-app="bankApp">
+		<ul ng-controller="balanceController">
+			<li ng-repeat="user in users | orderBy: 'balance'">
+				{{user.name}} - {{user.balance | currency}}
+				<!--{{user.name | uppercase}} - {{user.balance | currency}}-->
+				<a href="#" ng-click="delete(user)">Delete</a>
+				<a href="#" ng-click="edit(user)">Edit</a>
+			</li>
+
+			<li>
+				<input type="text" id="name" ng-model="current.name" value="{{current.name}}" />
+				<input type="text" id="balance" ng-model="current.balance" value="{{current.balance}}" />
+			</li>
+
+			<!--<li>
+				<input type="text" id="name" value="{{current.name}}" />
+				<input type="text" id="balance" value="{{current.balance}}" />
+			</li>-->
+
+			<li>
+				<button ng-click="save(current)">Save</button>
+				<button ng-click="addNew(current)">Add new user</button>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+	<head>
+		<title>HTTP Service AngularJS App</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+		<script src="index.js"></script>
+	</head>
+<body>
+	<div ng-app="httpApp" ng-controller="httpController">
+		<input type="text" ng-model="search"/>
+		<ul>
+			<li ng-repeat="u in users | filter : search |orderBy : 'name'">
+				{{u.name}} - {{u.email}}
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

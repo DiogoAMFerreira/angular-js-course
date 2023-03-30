@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>My AngularJS App</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+</head>
+
+<body>
+	<div ng-app>
+		<input type="checkbox" ng-model="tfCheckboxState" ng-true-value="This checkbox is checked"
+			ng-false-value="This checkbox is not checked" />
+		<h3>
+			{{tfCheckboxState}}
+			<!--Expression-->
+		</h3>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Dependencies AngularJS App</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+		<script src="index.js"></script>
+	</head>
+<body>
+	<div ng-app="filterApp" ng-controller="httpController">
+		<select ng-model="posting" ng-change="handleChange(posting)">
+			<option ng-repeat="post in posts" value="{{post.id}}">
+				{{post.id + "- " + post.title}}
+			</option>
+		</select>
+		<ul>
+			<li ng-repeat="c in comments">
+				{{c.email}} - {{c.body}}
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
